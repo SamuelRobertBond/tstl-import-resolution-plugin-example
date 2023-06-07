@@ -1,0 +1,29 @@
+{
+  "$schema": "https://raw.githubusercontent.com/TypeScriptToLua/TypeScriptToLua/master/tsconfig-schema.json",
+  "exclude": ["./node_modules", "./dist"],
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "ES2016",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    "experimentalDecorators": true,                   /* Enable experimental support for TC39 stage 2 draft decorators. */
+    "emitDecoratorMetadata": true,                    /* Emit design-type metadata for decorated declarations in source files. */
+
+    /* Modules */
+    "declaration": true,
+    "module": "commonjs",                                /* Specify what module code is generated. */
+    "rootDir": "./src",                                  /* Specify the root folder within your source files. */
+    "outDir": "./dist",
+    "inlineSourceMap": true,                          /* Include sourcemap files inside the emitted JavaScript. */
+    "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
+    "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
+    "strict": true,                                      /* Enable all strict type-checking options. */
+    "noImplicitAny": false,                            /* Enable error reporting for expressions and declarations with an implied 'any' type. */
+    "strictNullChecks": false,                         /* When type checking, take into account 'null' and 'undefined'. */
+    "alwaysStrict": false                             /* Ensure 'use strict' is always emitted. */
+  },
+  "tstl": {
+    "buildMode": "library",
+    "noImplicitGlobalVariables": false,
+    "sourceMapTraceback": true,
+    "noHeader": true
+  }
+}
