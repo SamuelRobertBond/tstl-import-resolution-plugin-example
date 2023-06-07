@@ -1,0 +1,3 @@
+[submodule "TypeScriptToLua"]
+	path = TypeScriptToLua
+	url = https://github.com/SamuelRobertBond/TypeScriptToLua.git

@@ -1,0 +1,9 @@
+This is an example usage for a propsed import resolution hook in the TypescriptToLua compiler
+
+To Install
+* Run `git submodule init` to clone the fork of TypeScriptToLua
+* Run `npm run setup` to install the dependencies and link the modules
+* Run `npm run build` to build all the modules
+* Go to the /bundle/dist folder to get the output lua file
+
+I wanted to use yarn workspaces, but they don't support package bins for linked dependencies, which made rebuilding tstl frustrating because I had to reinstall all the node modules every time.

@@ -1,0 +1,14 @@
+{
+  "name": "tstl-import-test-lib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index",
+  "scripts": {
+    "build": "tstl"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "~5.1.3"
+  }
+}
