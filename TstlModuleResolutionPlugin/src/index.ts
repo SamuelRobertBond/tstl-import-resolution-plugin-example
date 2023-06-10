@@ -1,26 +1,29 @@
 import * as tstl from "typescript-to-lua"
 import * as path from "path"
 
+const targetModules = new Set([
+    "apis"
+])
+
 const plugin : tstl.Plugin  = {
-    onImportResolutionFailure(packageRoot: string, dependencyPath: string) {
+    moduleResolution(moduleIdentifier: string, dependencyPath: string) {
+        console.log("[Plugin] Plugin Info:")
+        console.log("[Plugin] Module Identifier:", moduleIdentifier)
+        console.log("[Plugin] Dependency Path", dependencyPath)
 
-        // console.log("-------------------------------------")
-        // console.log("Directory", packageRoot)
-        // console.log("Original Path", dependencyPath)
+        // throw new Error("Stinky Smelly")
 
-        let lastSep = dependencyPath.lastIndexOf(path.sep)
-        let fixedDepPath = dependencyPath.substring(0, lastSep) + "." + dependencyPath.substring(lastSep + 1)
-        let fullFixedPath = packageRoot + path.sep + "dist" + path.sep + fixedDepPath + ".lua";
+        let modulesStart = moduleIdentifier.split(".")
 
-        // console.log("Fixed Dependency Path", fixedDepPath)
-        // console.log("Full Path", fullFixedPath)
-        
+        if(modulesStart.length > 0 && targetModules.has(modulesStart[0])){
+            console.log("[Plugin] Included in lib:", modulesStart[0], targetModules.has(modulesStart[0]))
+            let index = dependencyPath.lastIndexOf(path.sep)
+            let fixedPath =  dependencyPath.substring(0, index) + "." + dependencyPath.substring(index + 1)
+            console.log("[Plugin] Fixed Path", fixedPath)
+            return fixedPath;
+        }
 
-        return fullFixedPath;
-        
-        // let resolvedPath = fileDirectory + path.sep + dependencyPath.substring(0, lastSep) + "." + dependencyPath.substring(lastSep + 1)
-        // return resolvedPath + ".lua";
-
+        console.log("[Plugin] Could not transform", dependencyPath)
     }
 }
 
